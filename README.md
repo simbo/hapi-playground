@@ -24,7 +24,11 @@ hapi-playground
   
   - [ ] on-the-fly js processing, bundling and caching
 
-  - [ ] auth strategy using jwt
+  - [x] auth strategy using jwt
+
+  - [ ] interactive debugging console using [tv](https://github.com/hapijs/tv)
+
+  - [ ] generated api documentation using [lout](https://github.com/hapijs/lout)
 
 
 ## Development Usage
