@@ -4,12 +4,14 @@ import * as Vision from 'vision';
 import * as Accept from 'accept';
 
 import { reporterPlugin } from './../log/reporter-plugin';
+import { authPlugin } from './../auth/auth-plugin';
 import { stylistPlugin } from './../stylist/stylist-plugin';
 import { viewManager } from './view-manager';
 import { routes } from './routes';
 
 const plugins = [
   reporterPlugin,
+  authPlugin,
   Inert,
   Vision,
   stylistPlugin
