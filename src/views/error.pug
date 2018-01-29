@@ -1,0 +1,8 @@
+extends templates/base
+
+block title
+  | Error #{error.output.statusCode}
+
+block body
+  h1 Error #{error.output.statusCode}
+  p= error.message

@@ -1,0 +1,51 @@
+{
+  "name": "hapi-playground",
+  "description": "A node webserver playground using hapi 17 and typescript.",
+  "author": "Simon Lepel <simbo@simbo.de>",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "8.9.x"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --watch \"src/\" -e ts,js,json,pug,styl,scss --exec \"ts-node\" ./src/index.ts"
+  },
+  "dependencies": {
+    "accept": "^3.0.2",
+    "autoprefixer": "^7.2.5",
+    "chalk": "^2.3.0",
+    "css-mqpacker": "^6.0.2",
+    "css-reset-and-normalize": "^0.3.0",
+    "cssnano": "^3.10.0",
+    "denodeify": "^1.2.1",
+    "dotenv": "^4.0.0",
+    "good": "^8.0.0-rc1",
+    "good-winston": "^4.0.0",
+    "hapi": "^17.2.0",
+    "inert": "^5.1.0",
+    "node-sass": "^4.7.2",
+    "postcss": "^6.0.16",
+    "pug": "^2.0.0-rc.4",
+    "strip-ansi": "^4.0.0",
+    "stylus": "^0.54.5",
+    "vision": "^5.3.1",
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/denodeify": "^1.2.31",
+    "@types/dotenv": "^4.0.2",
+    "@types/glob": "^5.0.35",
+    "@types/node": "^9.3.0",
+    "@types/node-sass": "^3.10.32",
+    "@types/pug": "^2.0.4",
+    "@types/stylus": "^0.48.29",
+    "@types/winston": "^2.3.7",
+    "nodemon": "^1.14.11",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  }
+}

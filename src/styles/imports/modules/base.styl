@@ -1,0 +1,61 @@
+@require 'global-vars'
+@require 'mixins/mediaquery'
+
+/**
+ * Box Sizing
+ */
+
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+
+/**
+ * Root
+ */
+
+html
+  box-sizing: border-box
+  font-size: 16px
+
+  +mediaquery('tablet')
+    font-size: 18px
+
+  +mediaquery('medium-desktop')
+    font-size: 20px
+
+  +mediaquery('large-desktop')
+    font-size: 22px
+
+body
+  background: $colors.background
+  color: $colors.foreground
+  font-family: $fontFamily.default
+  font-size: 1rem
+  text-rendering: optimizeLegibility
+
+
+/**
+ * Basic HTML element styles
+ */
+
+pre, code
+  font-family: $fontFamily.monospace
+
+a
+  outline: none
+  text-decoration: none
+  color: $colors.link
+
+  &:focus,
+  &:hover,
+  &:active
+    color: $colors.linkActive
+
+button,
+input,
+select,
+textarea
+  outline: none
+  border-radius: 0
