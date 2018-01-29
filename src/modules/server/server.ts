@@ -8,7 +8,12 @@ import { stylistPlugin } from './../stylist/stylist-plugin';
 import { viewManager } from './view-manager';
 import { routes } from './routes';
 
-const plugins = [reporterPlugin, Inert, Vision, stylistPlugin];
+const plugins = [
+  reporterPlugin,
+  Inert,
+  Vision,
+  stylistPlugin
+];
 
 export async function initServer(options): Promise<Server> {
 
@@ -17,19 +22,21 @@ export async function initServer(options): Promise<Server> {
   await server.register(plugins);
 
   server.views(viewManager);
+
   server.route(routes);
 
   server.ext('onPreResponse', async (req, h) => {
+
     // if response is error and preferred mediatype is html, respond with error view
     if (
       req.response.isBoom &&
       Accept.parseAll(req.headers).mediaTypes[0] === 'text/html'
     ) {
-      return h
-        .view('error', { error: req.response })
+      return h.view('error', { error: req.response })
         .code(req.response.output.statusCode);
     }
     return h.continue;
+
   });
 
   await server.start();

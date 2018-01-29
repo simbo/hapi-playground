@@ -8,7 +8,7 @@ import { Stylist } from './stylist';
 import { StylistOptions } from './stylist-options.interface';
 import { CssRenderer } from './renderers/css-renderer';
 import { StylusRenderer } from './renderers/stylus-renderer';
-import { ScssRenderer } from './renderers/scss-renderer';
+// import { ScssRenderer } from './renderers/scss-renderer';
 
 /**
  * Stylist
