@@ -3,5 +3,9 @@ import { join, dirname } from 'path';
 const srcPath = dirname(dirname(__dirname));
 const rootPath = dirname(srcPath);
 
-export const src = (...trailers: string[]) => join(srcPath, ...trailers);
-export const root = (...trailers: string[]) => join(rootPath, ...trailers);
+function baseJoin(basePath) {
+  return (...trailers: string[]) => join(basePath, ...trailers)
+}
+
+export const src = baseJoin(srcPath);
+export const root = baseJoin(rootPath);
