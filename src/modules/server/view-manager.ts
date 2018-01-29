@@ -2,48 +2,36 @@ import * as Pug from 'pug';
 
 import { src } from './paths';
 
-interface CompileFunction {
-  (
-    template: string,
-    options: Pug.Options,
-    callback: CompileFunctionCallback
-  ): void;
-}
-
-interface CompileFunctionCallback {
-  (err: Error, view?: ViewFunction): void;
-}
-
-interface ViewFunction {
+interface RenderFunction {
   (
     context: Pug.LocalsObject,
     options: Pug.Options,
-    callback: ViewFunctionCallback
+    callback: (err: Error, html?: string) => void
   ): void;
-}
-
-interface ViewFunctionCallback {
-  (err: Error, html?: string): void;
 }
 
 const defaultOptions = {
   pretty: false
 };
 
-const compile: CompileFunction = (template, options, done) => {
+function compile(
+  template: string,
+  options: Pug.Options,
+  done: (err: Error, view?: RenderFunction) => void
+): void {
   options = { ...defaultOptions, ...options };
   try {
     const render = Pug.compile(template, options);
-    done(null, viewFunctionFactory(render, options));
+    done(null, renderFunctionFactory(render, options));
   } catch (err) {
     done(err);
   }
 };
 
-function viewFunctionFactory(
+function renderFunctionFactory(
   render: Pug.compileTemplate,
   globalOptions: Pug.Options
-): ViewFunction {
+): RenderFunction {
   return (context, options, done) => {
     options = { ...globalOptions, ...options };
     try {
@@ -55,7 +43,7 @@ function viewFunctionFactory(
   };
 }
 
-export const views = {
+export const viewManager = {
   engines: {
     pug: {
       module: { compile },

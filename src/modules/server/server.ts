@@ -5,7 +5,7 @@ import * as Accept from 'accept';
 
 import { reporterPlugin } from './../log/reporter-plugin';
 import { stylistPlugin } from './../stylist/stylist-plugin';
-import { views } from './views';
+import { viewManager } from './view-manager';
 import { routes } from './routes';
 
 const plugins = [reporterPlugin, Inert, Vision, stylistPlugin];
@@ -16,7 +16,7 @@ export async function initServer(options): Promise<Server> {
 
   await server.register(plugins);
 
-  server.views(views);
+  server.views(viewManager);
   server.route(routes);
 
   server.ext('onPreResponse', async (req, h) => {
