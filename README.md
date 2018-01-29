@@ -5,7 +5,7 @@ hapi-playground
 
 ---
 
-## Features
+## Features [WIP]
 
   - [x] static file serving using [inert](https://github.com/hapijs/inert)
 
@@ -30,7 +30,8 @@ hapi-playground
 ## Development Usage
 
 With node.js 8.9.x present, you can just install dependencies and use
-`package.json` scripts directly. Using `yarn` instead of `npm` is recommended.
+`package.json` scripts as usual.  
+Using `yarn` instead of `npm` is recommended.
 
 You can also use `docker-compose` to provide the environment. For example:
 
