@@ -1,3 +1,5 @@
+const startedAt = Date.now();
+
 import { join } from 'path';
 import * as dotenv from 'dotenv';
 import Chalk from 'chalk';
@@ -17,7 +19,8 @@ initServer({
   .then((server) => {
     logger.info([
       '✅ ',
-      Chalk.bold('App started.'),
+      Chalk.bold('App started'),
+      Chalk.dim(`(after ${(Date.now() - startedAt) / 1000} seconds)`),
       `Listening on ${server.info.host}:${server.info.port}…`
     ].join(' '));
   })
