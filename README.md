@@ -30,6 +30,8 @@ hapi-playground
 
   - [ ] generated api documentation using [lout](https://github.com/hapijs/lout)
 
+  - [ ] handle uncaught exceptions and cleanup afterwards using [poop](https://github.com/hapijs/poop)
+
 
 ## Development Usage
 
